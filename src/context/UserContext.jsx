@@ -2,7 +2,7 @@
 const [user, setUser] = useState({ name: "" });
 
 const getUserData = async () => {
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+    const response = await fetch("https://inotebook-1fq3.onrender.com/api/auth/login", {
         method: 'POST',
         headers: { 'auth-token': localStorage.getItem('token') }
     });
