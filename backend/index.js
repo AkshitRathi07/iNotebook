@@ -1,6 +1,8 @@
+require('dotenv').config({ path: './backend/.env' });
 const connectToMongo = require('./db');
 const express = require('express')
 var cors= require('cors')
+
 
 connectToMongo();
 
@@ -16,4 +18,5 @@ app.use('/api/notes', require('./routes/notes'))
 
 app.listen(port, () => {
   console.log(`iNotebook backend listening at http://localhost:${port}`)
+  console.log("MY SECRET IS: ", process.env.JWT_SECRET);
 })
