@@ -13,13 +13,19 @@ const Navbar = () => {
         navigate('/login');
     }
 
-    // Har render par localStorage se fresh naam uthayein
     const userName = localStorage.getItem('userName');
 
     return (
         <nav className={`navbar navbar-expand-lg ${isDarkMode ? 'navbar-dark bg-dark border-bottom border-secondary' : 'navbar-light bg-light shadow-sm'} sticky-top`}>
             <div className="container-fluid">
                 <Link className="navbar-brand fw-bold" to="/">iNotebook</Link>
+                
+                {/* --- YEH BUTTON ADD KIYA HAI MOBILE KE LIYE --- */}
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                {/* ------------------------------------------- */}
+
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
@@ -31,7 +37,6 @@ const Navbar = () => {
                     </ul>
 
                     <div className="d-flex align-items-center">
-                        {/* Dark Mode Toggle */}
                         <div className="form-check form-switch mx-3">
                             <input className="form-check-input" type="checkbox" onChange={toggleTheme} checked={isDarkMode} style={{ cursor: 'pointer' }} />
                             <label className={`form-check-label ${isDarkMode ? 'text-light' : 'text-dark'}`}>
@@ -46,7 +51,6 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <div className="d-flex align-items-center">
-                                {/* Welcome Message with Dynamic Name */}
                                 <span className={`mx-3 fw-bold ${isDarkMode ? 'text-info' : 'text-primary'}`}>
                                     Welcome {userName ? userName.charAt(0).toUpperCase() + userName.slice(1): "User"} 
                                 </span>
